@@ -1,3 +1,4 @@
+require_relative 'barracks.rb'
 
 class Unit 
 
@@ -13,7 +14,15 @@ attr_reader :health_points, :attack_power
   end
 
   def attack!(enemy)
-    enemy.damage(@attack_power)
+    if enemy.dead?
+      return false
+    else
+      enemy.damage(@attack_power) 
+    end
+  end
+
+  def dead?
+    health_points <= 0 
   end
 
 end

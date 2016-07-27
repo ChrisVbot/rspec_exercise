@@ -2,20 +2,17 @@
 
 class Footman < Unit
 
-  attr_reader :health_points, :attack_power
-
   def initialize
-    @health_points = 60
-    @attack_power = 10
+    super(60, 10)
   end
 
   def attack!(enemy)
-    super
-    
-  end
-
-  def damage(power)
-    super
+    if enemy.is_a?(Barracks)
+      power = attack_power / 2.0
+      enemy.damage(power.ceil)
+    else  
+      super
+    end
   end
 
 end
