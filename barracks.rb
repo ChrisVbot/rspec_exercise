@@ -4,7 +4,7 @@ require_relative 'unit.rb'
 
 class Barracks
   
-  attr_accessor :gold, :food
+  attr_reader :gold, :food
   
   def initialize
     @gold = 1000
